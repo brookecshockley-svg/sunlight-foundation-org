@@ -70,6 +70,9 @@
         const mailTo = (subject) => {
           window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
         };
+        const openDonatePage = () => {
+          window.location.href = '/donate.html';
+        };
         const createDonationSection = () => {
           if (document.querySelector('[data-sunlight-donations]')) {
             return document.querySelector('[data-sunlight-donations]');
@@ -135,8 +138,7 @@
           }
 
           Array.from(document.querySelectorAll('[data-sunlight-donation-level]')).forEach((button) => {
-            const level = button.dataset.sunlightDonationLevel;
-            wireClick(button, () => mailTo(`${level} donation for Sunlight Sober Living Foundation`));
+            wireClick(button, openDonatePage);
           });
           wireClick(document.querySelector('[data-sunlight-in-kind]'), () => mailTo('Food and household item donation for Sunlight Sober Living Foundation'));
 
@@ -147,7 +149,7 @@
             if (label === 'Programs') wireClick(element, () => scrollToTarget(programsSection));
             if (label === 'Leadership') wireClick(element, () => scrollToTarget(leadershipSection));
             if (label === 'Get Involved' || label === 'Contact' || label === 'Contact Us') wireClick(element, () => scrollToTarget(footer));
-            if (label === 'Donate') wireClick(element, () => scrollToTarget(donationSection));
+            if (label === 'Donate') wireClick(element, openDonatePage);
             if (label === 'Subscribe') wireClick(element, () => mailTo('Subscribe me to Sunlight Foundation updates'));
             if (label.includes(contactEmail)) {
               element.setAttribute('href', `mailto:${contactEmail}`);

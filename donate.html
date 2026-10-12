@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate | Sunlight Sober Living Foundation</title>
+    <meta name="description" content="Support Sunlight Sober Living Foundation with a secure donation, bank transfer inquiry, or in-kind food and household item donation." />
+    <meta name="author" content="Sunlight Sober Living Foundation" />
+    <meta property="og:title" content="Donate | Sunlight Sober Living Foundation" />
+    <meta property="og:description" content="Your gift provides practical support, resident stability, essentials, food, and household supplies for people beginning their recovery journey." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sunlight-foundation.org/donate.html" />
+    <style>
+      :root {
+        --sunlight-gold: #d99a20;
+        --sunlight-gold-dark: #b77912;
+        --sunlight-cream: #fcfaf5;
+        --sunlight-ink: #2a2622;
+        --sunlight-muted: #6e655d;
+        --sunlight-line: rgba(42, 38, 34, 0.14);
+        --sunlight-white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--sunlight-ink);
+        background: #f7f3eb;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        background: linear-gradient(135deg, #2a2622, #4a3821);
+        color: var(--sunlight-white);
+        padding: 1.4rem 1.5rem;
+      }
+
+      .topbar-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(217, 154, 32, 0.18);
+        border: 1px solid rgba(242, 193, 78, 0.42);
+        color: #f2c14e;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.5rem;
+      }
+
+      .back-link {
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(310px, 0.92fr);
+        gap: 2rem;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        background: var(--sunlight-cream);
+        border: 1px solid var(--sunlight-line);
+        border-radius: 1.6rem;
+        padding: clamp(1.6rem, 4vw, 3rem);
+        box-shadow: 0 24px 70px rgba(42, 38, 34, 0.08);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.85rem;
+        color: var(--sunlight-gold);
+        font-size: 0.82rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      h1, h2, h3 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.45rem, 7vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+      }
+
+      .lead {
+        color: var(--sunlight-muted);
+        font-size: 1.12rem;
+        line-height: 1.8;
+        max-width: 58ch;
+      }
+
+      .summary-card {
+        background: var(--sunlight-white);
+        border: 1px solid var(--sunlight-line);
+        border-radius: 1.6rem;
+        box-shadow: 0 24px 70px rgba(42, 38, 34, 0.1);
+        overflow: hidden;
+      }
+
+      .summary-total {
+        padding: 2rem;
+        border-bottom: 1px solid var(--sunlight-line);
+      }
+
+      .summary-total p {
+        margin: 0 0 0.4rem;
+        font-weight: 800;
+      }
+
+      .summary-total strong {
+        display: block;
+        font-size: 2.6rem;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .summary-body {
+        padding: 1.5rem 2rem 2rem;
+      }
+
+      .selected-impact {
+        color: var(--sunlight-muted);
+        line-height: 1.65;
+        min-height: 4.8rem;
+      }
+
+      .content {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 1.5rem 4rem;
+      }
+
+      .panel {
+        background: var(--sunlight-white);
+        border: 1px solid var(--sunlight-line);
+        border-radius: 1.6rem;
+        box-shadow: 0 24px 70px rgba(42, 38, 34, 0.08);
+        overflow: hidden;
+      }
+
+      .panel-section {
+        padding: clamp(1.4rem, 3vw, 2.25rem);
+        border-bottom: 1px solid var(--sunlight-line);
+      }
+
+      .panel-section:last-child {
+        border-bottom: 0;
+      }
+
+      .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .amount-card {
+        border: 1px solid var(--sunlight-line);
+        border-radius: 1.15rem;
+        background: #fff;
+        padding: 1rem;
+        text-align: left;
+        cursor: pointer;
+        min-height: 185px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .amount-card:hover,
+      .amount-card.active {
+        transform: translateY(-2px);
+        border-color: rgba(217, 154, 32, 0.68);
+        box-shadow: 0 16px 35px rgba(217, 154, 32, 0.18);
+      }
+
+      .amount-card .tier {
+        color: var(--sunlight-gold);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        font-weight: 900;
+      }
+
+      .amount-card .amount {
+        margin: 0.6rem 0 0.4rem;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.9rem;
+      }
+
+      .amount-card .headline {
+        margin: 0 0 0.55rem;
+        font-weight: 850;
+      }
+
+      .amount-card .details {
+        margin: 0;
+        color: var(--sunlight-muted);
+        font-size: 0.94rem;
+        line-height: 1.55;
+      }
+
+      .custom-row {
+        margin-top: 1.2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.8rem;
+        align-items: end;
+      }
+
+      label {
+        display: block;
+        font-weight: 850;
+        margin-bottom: 0.45rem;
+      }
+
+      input, textarea {
+        width: 100%;
+        border: 1px solid rgba(42, 38, 34, 0.22);
+        border-radius: 0.85rem;
+        padding: 0.9rem 1rem;
+        font: inherit;
+        background: #fff;
+      }
+
+      textarea {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        border-radius: 999px;
+        background: var(--sunlight-gold);
+        color: white;
+        text-decoration: none;
+        padding: 0.95rem 1.25rem;
+        font-weight: 900;
+        cursor: pointer;
+        box-shadow: 0 12px 26px rgba(217, 154, 32, 0.24);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--sunlight-ink);
+        border: 1px solid rgba(42, 38, 34, 0.22);
+        box-shadow: none;
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .payment-option {
+        border: 1px solid var(--sunlight-line);
+        border-radius: 1.15rem;
+        padding: 1.25rem;
+        background: #fff;
+      }
+
+      .payment-option h3 {
+        margin: 0 0 0.6rem;
+        font-size: 1.35rem;
+      }
+
+      .payment-option p {
+        color: var(--sunlight-muted);
+        line-height: 1.65;
+      }
+
+      .note {
+        color: var(--sunlight-muted);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .secure-note {
+        background: #2a2622;
+        color: rgba(255, 255, 255, 0.78);
+        border-radius: 1.2rem;
+        padding: 1.2rem;
+        line-height: 1.65;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--sunlight-muted);
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero, .payment-grid {
+          grid-template-columns: 1fr;
+        }
+        .amount-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .topbar-inner, .custom-row {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+        .amount-grid {
+          grid-template-columns: 1fr;
+        }
+        .summary-total strong {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-mark">✛</span>
+          <span>Sunlight Sober Living Foundation</span>
+        </a>
+        <a class="back-link" href="/">Back to main site</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Secure Giving</p>
+          <h1>Help someone begin again.</h1>
+          <p class="lead">Your donation provides practical support for people in early recovery — from hygiene items and food to resident support that gives someone time to stabilize, find work, and build a stronger foundation.</p>
+        </div>
+        <aside class="summary-card" aria-live="polite">
+          <div class="summary-total">
+            <p>Selected gift</p>
+            <strong id="selectedAmount">$240</strong>
+          </div>
+          <div class="summary-body">
+            <p class="eyebrow">Impact</p>
+            <p id="selectedImpact" class="selected-impact">Funds one week of resident support, giving a resident breathing room as they focus on recovery, search for work, and begin building financial stability.</p>
+            <a id="cloverButton" class="button" href="https://www.clover.com/pay-widgets/23cc109e-6d73-4fd5-b2c3-1c377420c4a2" target="_blank" rel="noopener">Continue to secure card payment</a>
+            <p class="note">Card payments open through Clover in a secure checkout window. Enter the selected amount on Clover when prompted.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="content">
+        <div class="panel">
+          <div class="panel-section">
+            <p class="eyebrow">Choose an amount</p>
+            <h2>Donation options</h2>
+            <div class="amount-grid" id="amountGrid">
+              <button class="amount-card" type="button" data-amount="25" data-label="$25 and under" data-impact="Helps provide personal hygiene items, feminine products, toiletries, and the basic necessities someone may need when they first walk through the door.">
+                <span class="tier">Bronze</span>
+                <strong class="amount">$25 and under</strong>
+                <span class="headline">Welcome-home essentials</span>
+                <span class="details">Hygiene items, feminine products, toiletries, and basic necessities.</span>
+              </button>
+              <button class="amount-card active" type="button" data-amount="240" data-label="$240" data-impact="Funds one week of resident support, giving a resident breathing room as they focus on recovery, search for work, and begin building financial stability.">
+                <span class="tier">Silver</span>
+                <strong class="amount">$240</strong>
+                <span class="headline">One week of resident support</span>
+                <span class="details">A week of stability while someone focuses on recovery and next steps.</span>
+              </button>
+              <button class="amount-card" type="button" data-amount="480" data-label="$480" data-impact="Provides two weeks of resident support, helping someone stay grounded in a safe recovery environment while they take the next steps toward independence.">
+                <span class="tier">Gold</span>
+                <strong class="amount">$480</strong>
+                <span class="headline">Two weeks of stability</span>
+                <span class="details">Two weeks of support in a safe recovery environment.</span>
+              </button>
+              <button class="amount-card" type="button" data-amount="960" data-label="$960" data-impact="Covers four weeks of resident support, offering meaningful stability during the early stage of a new recovery journey.">
+                <span class="tier">Platinum</span>
+                <strong class="amount">$960</strong>
+                <span class="headline">Four weeks of a fresh start</span>
+                <span class="details">A month of meaningful support for a new recovery journey.</span>
+              </button>
+            </div>
+            <div class="custom-row">
+              <div>
+                <label for="customAmount">Custom amount</label>
+                <input id="customAmount" inputmode="decimal" placeholder="Enter another amount" />
+              </div>
+              <button class="button secondary" id="customAmountButton" type="button">Use custom amount</button>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <p class="eyebrow">Payment options</p>
+            <h2>Ways to complete your gift</h2>
+            <div class="payment-grid">
+              <article class="payment-option">
+                <h3>Card or digital wallet</h3>
+                <p>Use Clover for credit/debit card payments and supported digital wallet options. This is the best online option right now.</p>
+                <a class="button" href="https://www.clover.com/pay-widgets/23cc109e-6d73-4fd5-b2c3-1c377420c4a2" target="_blank" rel="noopener">Open Clover checkout</a>
+              </article>
+              <article class="payment-option">
+                <h3>Bank transfer / ACH</h3>
+                <p>For bank account donations, contact us and we will coordinate secure instructions privately. We do not post bank routing/account details on the website.</p>
+                <a class="button secondary" href="mailto:info@sunlightrecovery.org?subject=Bank%20transfer%20donation%20for%20Sunlight%20Sober%20Living%20Foundation">Coordinate bank donation</a>
+              </article>
+              <article class="payment-option">
+                <h3>Food & household items</h3>
+                <p>We welcome shelf-stable food, grocery gift cards, cleaning supplies, paper products, laundry detergent, bedding, towels, and household basics.</p>
+                <a class="button secondary" href="mailto:info@sunlightrecovery.org?subject=Food%20and%20household%20item%20donation%20for%20Sunlight%20Sober%20Living%20Foundation">Coordinate items</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <p class="eyebrow">Donation note</p>
+            <h2>Optional note for your gift</h2>
+            <textarea id="donationNote" placeholder="Example: I would like this gift to support rent assistance, household items, or wherever it is most needed."></textarea>
+            <p class="secure-note">If you use the Clover checkout, enter your gift amount there. If you want to give by bank transfer, check, food, or household supplies, use the contact options above so we can coordinate securely. If you have a Clover card reader, that is typically for in-person card payments and can also be used at events or meetings.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Sunlight Sober Living Foundation is a recognized 501(c)(3) nonprofit. Donations may be tax-deductible to the fullest extent allowed by law.</p>
+    </footer>
+
+    <script>
+      const selectedAmount = document.getElementById('selectedAmount');
+      const selectedImpact = document.getElementById('selectedImpact');
+      const cards = Array.from(document.querySelectorAll('.amount-card'));
+      const customInput = document.getElementById('customAmount');
+      const customButton = document.getElementById('customAmountButton');
+
+      const setGift = (label, impact, activeCard = null) => {
+        selectedAmount.textContent = label;
+        selectedImpact.textContent = impact;
+        cards.forEach((card) => card.classList.toggle('active', card === activeCard));
+      };
+
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          setGift(card.dataset.label, card.dataset.impact, card);
+        });
+      });
+
+      customButton.addEventListener('click', () => {
+        const rawAmount = customInput.value.trim().replace(/^\$/, '');
+        if (!rawAmount) return;
+        const formatted = Number(rawAmount).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        setGift(formatted, 'A custom gift helps Sunlight Sober Living Foundation meet the most urgent needs for residents and the household.', null);
+      });
+    </script>
+  </body>
+</html>
