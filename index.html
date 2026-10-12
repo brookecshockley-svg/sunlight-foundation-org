@@ -20,6 +20,32 @@
       window.addEventListener('DOMContentLoaded', () => {
         const missionStatement = 'We believe recovery should be seen, supported, and celebrated. Through compassion, community partnerships, and practical support, Sunlight Sober Living Foundation works alongside people in recovery, peer support specialists, families, and local leaders to challenge stigma and help more people find their way forward.';
         const contactEmail = 'info@sunlightrecovery.org';
+        const donationLevels = [
+          {
+            name: 'Bronze',
+            amount: '$25 and under',
+            headline: 'Welcome-home essentials',
+            description: 'Helps provide personal hygiene items, feminine products, toiletries, and the basic necessities someone may need when they first walk through the door.',
+          },
+          {
+            name: 'Silver',
+            amount: '$240',
+            headline: 'One week of resident support',
+            description: 'Funds one week of rent support, giving a resident breathing room as they focus on recovery, search for work, and begin building financial stability.',
+          },
+          {
+            name: 'Gold',
+            amount: '$480',
+            headline: 'Two weeks of stability',
+            description: 'Provides two weeks of rent support, helping someone stay grounded in a safe recovery environment while they take the next steps toward independence.',
+          },
+          {
+            name: 'Platinum',
+            amount: '$960',
+            headline: 'Four weeks of a fresh start',
+            description: 'Covers four weeks of resident support, offering meaningful stability during the early stage of a new recovery journey.',
+          },
+        ];
 
         const normalize = (text) => (text || '').replace(/\s+/g, ' ').trim();
         const findByText = (selector, text) => Array.from(document.querySelectorAll(selector))
@@ -44,11 +70,51 @@
         const mailTo = (subject) => {
           window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
         };
+        const createDonationSection = () => {
+          if (document.querySelector('[data-sunlight-donations]')) {
+            return document.querySelector('[data-sunlight-donations]');
+          }
+
+          const section = document.createElement('section');
+          section.dataset.sunlightDonations = 'true';
+          section.style.background = '#fcfaf5';
+          section.style.padding = '5rem 1.5rem';
+          section.innerHTML = `
+            <div style="max-width: 1120px; margin: 0 auto;">
+              <div style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
+                <p style="font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.85rem; letter-spacing: 0.24em; text-transform: uppercase; color: #d99a20; font-weight: 700; margin-bottom: 1rem;">Ways to Give</p>
+                <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; color: #2a2622; margin: 0 0 1rem;">Your donation becomes practical recovery support.</h2>
+                <p style="font-family: ui-sans-serif, system-ui, sans-serif; color: #675f56; font-size: 1.08rem; line-height: 1.75; margin: 0;">Every gift helps remove one more barrier for someone choosing recovery. Contributions may help with basic necessities, food, household supplies, or temporary resident support while a person gets back on their feet.</p>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem;">
+                ${donationLevels.map((level) => `
+                  <article style="background: #ffffff; border: 1px solid rgba(42, 38, 34, 0.12); border-radius: 1.25rem; padding: 1.5rem; box-shadow: 0 18px 45px rgba(42, 38, 34, 0.08); display: flex; flex-direction: column; min-height: 100%;">
+                    <p style="font-family: ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #d99a20; font-size: 0.75rem; font-weight: 800; margin: 0 0 0.65rem;">${level.name}</p>
+                    <h3 style="font-family: Georgia, 'Times New Roman', serif; color: #2a2622; font-size: 1.9rem; margin: 0 0 0.75rem;">${level.amount}</h3>
+                    <p style="font-family: ui-sans-serif, system-ui, sans-serif; color: #2a2622; font-weight: 700; margin: 0 0 0.7rem;">${level.headline}</p>
+                    <p style="font-family: ui-sans-serif, system-ui, sans-serif; color: #675f56; line-height: 1.65; margin: 0 0 1.25rem; flex: 1;">${level.description}</p>
+                    <button data-sunlight-donation-level="${level.name}" style="border: 0; border-radius: 999px; background: #d99a20; color: white; font-weight: 800; padding: 0.85rem 1rem; cursor: pointer; box-shadow: 0 10px 22px rgba(217, 154, 32, 0.24);">Give ${level.amount}</button>
+                  </article>
+                `).join('')}
+              </div>
+              <div style="margin-top: 1.5rem; background: #2a2622; color: white; border-radius: 1.25rem; padding: clamp(1.5rem, 4vw, 2.25rem); display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem;">
+                <div>
+                  <p style="font-family: ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #f2c14e; font-size: 0.75rem; font-weight: 800; margin: 0 0 0.65rem;">Food & Household Support</p>
+                  <h3 style="font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 0.75rem;">In-kind donations matter, too.</h3>
+                  <p style="font-family: ui-sans-serif, system-ui, sans-serif; color: rgba(255,255,255,0.72); line-height: 1.7; margin: 0;">Shelf-stable food, grocery gift cards, cleaning supplies, paper products, laundry detergent, bedding, towels, and household basics help residents feel cared for while they focus on recovery.</p>
+                </div>
+                <button data-sunlight-in-kind style="justify-self: start; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; background: transparent; color: white; font-weight: 800; padding: 0.85rem 1.2rem; cursor: pointer;">Coordinate an item donation</button>
+              </div>
+            </div>
+          `;
+          return section;
+        };
         const enhancePage = () => {
           const missionSection = findSectionByHeading('Rooted in Faith, Guided by Compassion');
           const programsSection = findSectionByHeading('Pillars of Support');
           const leadershipSection = findSectionByHeading('Transparency & Leadership');
           const footer = document.querySelector('footer') || findSectionByHeading('Stay Connected');
+          let donationSection = document.querySelector('[data-sunlight-donations]');
 
           if (missionSection && !document.querySelector('[data-sunlight-mission-statement]')) {
             const missionParagraph = Array.from(missionSection.querySelectorAll('p'))
@@ -63,6 +129,17 @@
             }
           }
 
+          if (footer && !donationSection) {
+            donationSection = createDonationSection();
+            footer.insertAdjacentElement('beforebegin', donationSection);
+          }
+
+          Array.from(document.querySelectorAll('[data-sunlight-donation-level]')).forEach((button) => {
+            const level = button.dataset.sunlightDonationLevel;
+            wireClick(button, () => mailTo(`${level} donation for Sunlight Sober Living Foundation`));
+          });
+          wireClick(document.querySelector('[data-sunlight-in-kind]'), () => mailTo('Food and household item donation for Sunlight Sober Living Foundation'));
+
           Array.from(document.querySelectorAll('a, button')).forEach((element) => {
             const label = normalize(element.textContent);
             if (label === 'SunlightSLF') wireClick(element, () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -70,7 +147,7 @@
             if (label === 'Programs') wireClick(element, () => scrollToTarget(programsSection));
             if (label === 'Leadership') wireClick(element, () => scrollToTarget(leadershipSection));
             if (label === 'Get Involved' || label === 'Contact' || label === 'Contact Us') wireClick(element, () => scrollToTarget(footer));
-            if (label === 'Donate') wireClick(element, () => mailTo('Donation for Sunlight Sober Living Foundation'));
+            if (label === 'Donate') wireClick(element, () => scrollToTarget(donationSection));
             if (label === 'Subscribe') wireClick(element, () => mailTo('Subscribe me to Sunlight Foundation updates'));
             if (label.includes(contactEmail)) {
               element.setAttribute('href', `mailto:${contactEmail}`);
